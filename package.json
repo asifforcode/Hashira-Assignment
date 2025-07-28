@@ -1,0 +1,16 @@
+{
+  "name": "shamir-secret-sharing-solution",
+  "version": "1.0.0",
+  "description": "JavaScript implementation of Shamir's Secret Sharing algorithm for Catalog Placements Assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "keywords": ["shamir", "secret-sharing", "cryptography", "polynomial", "lagrange-interpolation"],
+  "author": "Student",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
