@@ -81,11 +81,5 @@ node test.js
 ✅ **Checkpoint 2**: Decode Y values from different bases  
 ✅ **Checkpoint 3**: Calculate secret using Lagrange interpolation  
 
-## License
 
-This project is developed for educational purposes as part of the Catalog Placements Assignment.
 
-## Author
-
-**Assignment**: Catalog Placements - Shamir's Secret Sharing  
-**Repository**: [Hashira-Assignment](https://github.com/asifforcode/Hashira-Assignment)
