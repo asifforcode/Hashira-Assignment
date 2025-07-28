@@ -1,98 +1,91 @@
-# Shamir's Secret Sharing - Simple JavaScript Solution
+# Hashira Assignment - Shamir's Secret Sharing
 
-**Easy-to-understand JavaScript implementation** of Shamir's Secret Sharing algorithm for the Catalog Placements Assignment.
+A JavaScript implementation of Shamir's Secret Sharing algorithm for the Catalog Placements Assignment.
 
-## What This Program Does
+## Overview
 
-1. **Reads secret data** from JSON files
-2. **Converts encoded numbers** from different bases (binary, hex, etc.) to regular numbers
-3. **Uses math magic** (Lagrange interpolation) to find the hidden secret
-4. **Shows the results** clearly and simply
+This project implements a simplified version of Shamir's Secret Sharing algorithm to recover the constant term of an unknown polynomial using Lagrange interpolation. The solution processes encoded points from JSON test cases and calculates the secret value at f(0).
 
-## Files
+## Algorithm
+
+The implementation uses **Lagrange interpolation** to reconstruct a polynomial from given points and find its constant term:
 
 ```
-Project Files:
-├── index.js          # Main solution (super simple!)
-├── test.js           # Test the solution
-├── package.json      # Project info
-├── testcase1.json    # First puzzle
-├── testcase2.json    # Second puzzle  
-└── README.md         # This file
+f(0) = Σ(i=0 to k-1) yi * Li(0)
 ```
 
-## How to Run
+Where `Li(0)` is the Lagrange basis polynomial evaluated at x=0.
+
+## Project Structure
+
+```
+├── index.js          # Main implementation
+├── test.js           # Test suite
+├── package.json      # Project configuration
+├── testcase1.json    # Test case 1 data
+├── testcase2.json    # Test case 2 data
+└── README.md         # Documentation
+```
+
+## Usage
+
+### Prerequisites
+- Node.js (version 14.0.0 or higher)
+
+### Running the Solution
 
 ```bash
-# Run the main program
+# Execute main program
 node index.js
 
-# Test everything
+# Run tests
 node test.js
 ```
 
 ## Results
 
-- **Test Case 1**: Secret = **3**
-- **Test Case 2**: Secret = **79836264049851**
+- **Test Case 1**: `3`
+- **Test Case 2**: `79836264049851`
 
-## How It Works (Simple Explanation)
+## Implementation Details
 
-### Step 1: Decode the Numbers
-The input has numbers written in different bases:
-- `"111"` in base 2 = 7 in normal numbers
-- `"213"` in base 4 = 39 in normal numbers  
-- `"aed7"` in base 15 = a really big number
+### Key Components
 
-### Step 2: Use Math to Find the Secret
-We use something called "Lagrange interpolation" which is just a fancy way to:
-1. Take some points (x, y) from a hidden curve
-2. Figure out what the curve looks like
-3. Find what the curve equals when x = 0 (that's our secret!)
+1. **Base Conversion**: Converts encoded values from various bases (2-36) to decimal using BigInt for precision
+2. **Point Extraction**: Parses JSON input and decodes y-values from their respective bases
+3. **Lagrange Interpolation**: Calculates polynomial coefficients to find f(0)
+4. **Error Handling**: Validates input data and handles edge cases
 
-### Step 3: Done!
-The secret is the answer we're looking for.
+### Technical Specifications
 
-## Code Structure (Human-Readable)
+- **Language**: JavaScript (Node.js)
+- **Precision**: BigInt support for 256-bit integers
+- **Algorithm**: Lagrange interpolation method
+- **Input Format**: JSON with base-encoded coordinate points
 
-```javascript
-// Convert "111" base 2 to regular number 7
-function decodeNumber(value, base) { ... }
+## Test Cases
 
-// Use math to find the secret
-function calculateSecret(points) { ... }
+### Test Case 1
+- **Input**: 4 points, requires 3 points (k=3)
+- **Polynomial Degree**: 2
+- **Secret**: 3
 
-// Process one test file  
-function solve(filename) { ... }
+### Test Case 2  
+- **Input**: 10 points, requires 7 points (k=7)
+- **Polynomial Degree**: 6
+- **Secret**: 79836264049851
 
-// Run everything
-function main() { ... }
-```
+## Assignment Requirements
 
-## Why This Version is Better
+✅ **Checkpoint 1**: Read test cases from separate JSON files  
+✅ **Checkpoint 2**: Decode Y values from different bases  
+✅ **Checkpoint 3**: Calculate secret using Lagrange interpolation  
 
-- Super Simple: No complex classes or confusing structure
-- Easy to Read: Clear function names and comments
-- Easy to Understand: Step-by-step logic
-- Still Accurate: Produces correct results
-- Human-Friendly: Written like a person would write it
+## License
 
-## Learning Notes
+This project is developed for educational purposes as part of the Catalog Placements Assignment.
 
-- **BigInt**: Used for really big numbers (JavaScript's normal numbers aren't big enough)
-- **Lagrange Interpolation**: Math technique to find missing parts of curves
-- **Base Conversion**: Converting numbers from different counting systems
+## Author
 
-## Testing
-
-The program includes tests to make sure everything works:
-- Tests number conversion
-- Runs both test cases
-- Verifies the answers are correct
-
----
-
-**Made Simple**: This solution prioritizes clarity and understanding over complex features.  
 **Assignment**: Catalog Placements - Shamir's Secret Sharing  
-**Language**: JavaScript (Node.js)
-"# Hashira-Assignment" 
+**Repository**: [Hashira-Assignment](https://github.com/asifforcode/Hashira-Assignment)
